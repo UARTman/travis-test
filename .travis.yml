@@ -1,0 +1,19 @@
+language: python
+
+jobs:
+  include:
+    - name: "Python windows"
+      os: windows
+      language: shell
+      before_install:
+        - choco install anaconda3
+        - conda activate
+        - pip install --upgrade pip
+    - name: "Python linux"
+      python: 3.8
+
+script:
+  - python test.py
+
+
+
