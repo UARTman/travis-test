@@ -32,6 +32,10 @@ script:
   - python test.py
   - python -m nuitka --assume-yes-for-downloads --standalone --experimental=use_pefile test.py
 
-after_script:
-
-
+deploy:
+  provider: releases
+  api_key: "9167f1414bf778de0e01e0e4f213f85485cf4e98"
+  file: release*
+  skip_cleanup: true
+  on:
+    tags: true
