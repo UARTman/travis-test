@@ -13,7 +13,7 @@ jobs:
 #        - refreshenv
         - /c/tools/anaconda3/Scripts/conda init bash
         - /c/tools/anaconda3/Scripts/activate
-        - /c/tools/anaconda3/Scripts/conda install m2w64-gcc libpython
+        - /c/tools/anaconda3/Scripts/conda install -y m2w64-gcc libpython
         - echo $CONDA
         - export CONDA_ALWAYS_YES=1
     - name: "Python linux"
