@@ -12,10 +12,6 @@ jobs:
         - /c/tools/anaconda3/Scripts/activate # activate conda
         - source /c/Users/travis/.bash_profile
         - /c/tools/anaconda3/Scripts/conda install -y m2w64-gcc libpython # dependencies for nuitka
-      before_script:
-        - pip install -r requirements.txt
-        - pip install pyinstaller
-        - pyinstaller -F test.py
     - name: "Python linux"
       python: 3.7
       before_install:
@@ -30,7 +26,8 @@ before_script:
 script:
   - python test.py
   - python -m nuitka --assume-yes-for-downloads --standalone --experimental=use_pefile test.py
-  - ls
 
+after_script:
+  - ls
 
 
