@@ -10,7 +10,7 @@ jobs:
         - echo $PATH
         - export CONDA_ALWAYS_YES=1
         - conda activate
-        - python -m pip install --upgrage pip
+        - pip install --upgrage pip
     - name: "Python linux"
       python: 3.8
 
