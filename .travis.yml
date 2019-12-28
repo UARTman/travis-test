@@ -10,8 +10,7 @@ jobs:
         - cd C:\\tools\\anaconda3
         - dir
         - export CONDA_ALWAYS_YES=1
-        - C:\\tools\\anaconda3\\Scripts\\activate.bat
-        - C:\\tools\\anaconda3\\conda.exe
+        - conda activate
         - python -m pip install --upgrage pip
     - name: "Python linux"
       python: 3.8
