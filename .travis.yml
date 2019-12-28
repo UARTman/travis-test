@@ -18,7 +18,8 @@ jobs:
     before_install:
     - sudo apt-get install -y chrpath
     before_deploy:
-    - tar -cvf release-linux-bin-$TRAVIS_TAG.tar test.dist
+    - tar -cvf "release-linux-bin-$TRAVIS_TAG.tar" test.dist
+    - ls
 before_script:
 - pip install -r requirements.txt
 script:
