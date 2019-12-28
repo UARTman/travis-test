@@ -10,6 +10,7 @@ jobs:
         - wget https://gist.githubusercontent.com/jayvdb/1daf8c60e20d64024f51ec333f5ce806/raw/a42f930a940597750fd29548d13b2b538d7508c2/RefreshEnv.sh
 #        - source RefreshEnv.sh
 #        - refreshenv
+        - /c/tools/anaconda3/Scripts/conda init bash
         - /c/tools/anaconda3/Scripts/conda activate
         - /c/tools/anaconda3/Scripts/conda install m2w64-gcc libpython
         - echo $CONDA
@@ -26,7 +27,7 @@ jobs:
         - cd /c/
         - dir
         - python -m pip install --upgrade pip
-      env: PATH=/c/Python38:/c/Python38/Scripts:$PATH
+      env: PATH=/c/Python37:/c/Python37/Scripts:$PATH
       before_script:
         - pip install -r requirements.txt
 
