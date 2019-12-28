@@ -1,41 +1,38 @@
 language: python
-
 jobs:
   include:
-    - name: "Python windows"
-      os: windows
-      language: shell
-      before_install:
-        - choco install openssl # Install OpenSSL -> Can't use https without it
-        - choco install anaconda3 --params '"/AddToPath"' # install Conda
-        - /c/tools/anaconda3/Scripts/conda init bash # initiate conda
-        - /c/tools/anaconda3/Scripts/activate # activate conda
-        - source /c/Users/travis/.bash_profile
-        - /c/tools/anaconda3/Scripts/conda install -y m2w64-gcc libpython # dependencies for nuitka
-      after_script:
-        - powershell "Compress-Archive -Path test.dist -DestinationPath release-$TRAVIS_TAG"
-        - ls
-    - name: "Python linux"
-      python: 3.7
-      before_install:
-        - sudo apt-get install -y chrpath
-      after_script:
-        - ./test.dist/test
-        - tar -cvf release-$TRAVIS_TAG.tar test.dist
-        - ls
-
-
+  - name: Python windows
+    os: windows
+    language: shell
+    before_install:
+    - choco install openssl
+    - choco install anaconda3 --params '"/AddToPath"'
+    - "/c/tools/anaconda3/Scripts/conda init bash"
+    - "/c/tools/anaconda3/Scripts/activate"
+    - source /c/Users/travis/.bash_profile
+    - "/c/tools/anaconda3/Scripts/conda install -y m2w64-gcc libpython"
+    after_script:
+    - powershell "Compress-Archive -Path test.dist -DestinationPath release-$TRAVIS_TAG"
+    - ls
+  - name: Python linux
+    python: 3.7
+    before_install:
+    - sudo apt-get install -y chrpath
+    after_script:
+    - "./test.dist/test"
+    - tar -cvf release-$TRAVIS_TAG.tar test.dist
+    - ls
 before_script:
-  - pip install -r requirements.txt
-
+- pip install -r requirements.txt
 script:
-  - python test.py
-  - python -m nuitka --assume-yes-for-downloads --standalone --experimental=use_pefile test.py
-
+- python test.py
+- python -m nuitka --assume-yes-for-downloads --standalone --experimental=use_pefile
+  test.py
 deploy:
   provider: releases
-  api_key: "9167f1414bf778de0e01e0e4f213f85485cf4e98"
-  file: release*
-  skip_cleanup: true
+  api_key:
+    secure: SbjljyV1w9gyuj7ySR4jx7nc41ypFXWTFKgXsFsBhUtRJDuZ6wJo9B7DyGiLjUzqnP9xjAJNFyzao+pguPM410aFRz5w4GvZtksbdnFjTu2toNclIt5nraDxMDGNjn9wh5Rrr2kmkjjT4VZ5rg5pWnkpoPiYPorWxL/ioq9Ojl7maJpY0h1OcO60Fu9JlhVRDhJqf2eHV4LIFD9bDHpSOG6l3N9fw0UtU5S3XQeHFia+Ck5FA3tGg1E0SfelhrBN/Y8Mp7E9NB7xWu31DArWcca3RuMknFhLfaC7a+hvtXjlMidLvhhLjIVnEjuFVcLJXHJ0jFZPz0Nj5VAAsuANHifaH0RSQ33QE3BBV/ieeCjrl0xcxzobntO/OTpJQRmsZa0Zh8yMZzYWmlpoeQpIE2fbW+3B95JKC9S2gIwLy+RdOPGEFZi3IXs927bzB6sKP/ijYLafhibPwtOnBlQCFYgjDTs7Tl8w5cBSrny8OfkReQuvLyAsdFB71vsAPJF7INGrVqw0Wwr+5QUqCfKuU/R9F95gBqlpp+EOhYqWagXxDpwlQBQWh5mWHrEQ3NSk3f9kb4cxCZJ8xZQJWURVwicjylRqW7VIBtlfEKp0GvImZqnhlWEmLYitrFStE+Ciuzskdg9WcP4uao4WoG1FdAXbq0R0FhCTlRijTL15xh8=
+  file: release-*
   on:
+    repo: UARTman/travis-test
     tags: true
