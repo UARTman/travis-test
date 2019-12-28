@@ -11,17 +11,14 @@ jobs:
     - "/c/tools/anaconda3/Scripts/activate"
     - source /c/Users/travis/.bash_profile
     - "/c/tools/anaconda3/Scripts/conda install -y m2w64-gcc libpython"
-    after_script:
-    - powershell "Compress-Archive -Path test.dist -DestinationPath release-$TRAVIS_TAG"
-    - ls
+    before_deploy:
+    - powershell "Compress-Archive -Path test.dist -DestinationPath release-windows-$TRAVIS_TAG"
   - name: Python linux
     python: 3.7
     before_install:
     - sudo apt-get install -y chrpath
-    after_script:
-    - "./test.dist/test"
-    - tar -cvf release-$TRAVIS_TAG.tar test.dist
-    - ls
+    before_deploy:
+    - tar -cvf release-linux-bin-$TRAVIS_TAG.tar test.dist
 before_script:
 - pip install -r requirements.txt
 script:
