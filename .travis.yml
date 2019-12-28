@@ -13,6 +13,7 @@ jobs:
 #        - refreshenv
         - /c/tools/anaconda3/Scripts/conda init bash
         - /c/tools/anaconda3/Scripts/activate
+        - source C:\Users\travis\.bash_profile
         - /c/tools/anaconda3/Scripts/conda install -y m2w64-gcc libpython
         - echo $CONDA
         - export CONDA_ALWAYS_YES=1
@@ -29,8 +30,9 @@ jobs:
         - choco install python --version 3.7.0
         - python -m pip install --upgrade pip
       env: PATH=/c/Python37:/c/Python37/Scripts:$PATH
-      before_script:
-        - pip install -r requirements.txt
+
+before_script:
+  - pip install -r requirements.txt
 
 script:
   - python test.py
