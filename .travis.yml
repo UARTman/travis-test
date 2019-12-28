@@ -11,8 +11,10 @@ jobs:
     - "/c/tools/anaconda3/Scripts/activate"
     - source /c/Users/travis/.bash_profile
     - "/c/tools/anaconda3/Scripts/conda install -y m2w64-gcc libpython"
+    install:
+    - pip install -r requirements.txt
     before_deploy:
-    - powershell "Compress-Archive -Path test.dist -DestinationPath release-windows-$TRAVIS_TAG-exe"
+    - powershell "Compress-Archive -Path test.dist -DestinationPath release-windows-$TRAVIS_TAG.zip"
   - name: Python linux
     python: 3.7
     before_install:
@@ -21,8 +23,6 @@ jobs:
     - tar -cvf "release-linux-bin-$TRAVIS_TAG.tar" test.dist
     - git add release-linux-bin-$TRAVIS_TAG.tar
     - ls
-before_script:
-- pip install -r requirements.txt
 script:
 - python test.py
 - python -m nuitka --assume-yes-for-downloads --standalone --experimental=use_pefile
