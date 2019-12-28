@@ -11,7 +11,7 @@ jobs:
 #        - source RefreshEnv.sh
 #        - refreshenv
         - /c/tools/anaconda3/Scripts/conda init bash
-        - /c/tools/anaconda3/Scripts/conda activate
+        - conda --version
         - /c/tools/anaconda3/Scripts/conda install m2w64-gcc libpython
         - echo $CONDA
         - export CONDA_ALWAYS_YES=1
