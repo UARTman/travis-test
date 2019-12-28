@@ -6,9 +6,8 @@ jobs:
       os: windows
       language: shell
       before_install:
-        - choco install anaconda3 --params '/AddToPath'
-        - cd C:\\tools\\anaconda3
-        - dir
+        - choco install anaconda3 --params '"/AddToPath"'
+        - echo $PATH
         - export CONDA_ALWAYS_YES=1
         - conda activate
         - python -m pip install --upgrage pip
