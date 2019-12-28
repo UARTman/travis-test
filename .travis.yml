@@ -2,18 +2,18 @@ language: python
 
 jobs:
   include:
-    - name: "Python windows"
-      os: windows
-      language: shell
-      before_install:
-        - choco install anaconda3 --params '"/AddToPath"'
-        - wget https://gist.githubusercontent.com/jayvdb/1daf8c60e20d64024f51ec333f5ce806/raw/a42f930a940597750fd29548d13b2b538d7508c2/RefreshEnv.sh
-        - source RefreshEnv.sh
-        - refreshenv
-        - echo $PATH
-        - export CONDA_ALWAYS_YES=1
-        - conda activate
-        - pip install --upgrage pip
+#    - name: "Python windows"
+#      os: windows
+#      language: shell
+#      before_install:
+#        - choco install anaconda3 --params '"/AddToPath"'
+#        - wget https://gist.githubusercontent.com/jayvdb/1daf8c60e20d64024f51ec333f5ce806/raw/a42f930a940597750fd29548d13b2b538d7508c2/RefreshEnv.sh
+#        - source RefreshEnv.sh
+#        - refreshenv
+#        - echo $PATH
+#        - export CONDA_ALWAYS_YES=1
+#        - conda activate
+#        - pip install --upgrage pip
     - name: "Python linux"
       python: 3.8
     - name: "Windows NoConda"
@@ -28,6 +28,8 @@ jobs:
 
 script:
   - python test.py
+  - python -m nuitka --standalone --experimental=use_pefile test.py
+  - ls
 
 
 
