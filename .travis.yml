@@ -36,7 +36,7 @@ before_script:
 
 script:
   - python test.py
-  - python -m nuitka --standalone --experimental=use_pefile test.py
+  - python -m nuitka -y --standalone --experimental=use_pefile test.py
   - ls
 
 
