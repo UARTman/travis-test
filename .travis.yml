@@ -6,14 +6,12 @@ jobs:
       os: windows
       language: shell
       before_install:
-        - choco install openssl
-        - choco install anaconda3 --params '"/AddToPath"'
-        - /c/tools/anaconda3/Scripts/conda init bash
-        - /c/tools/anaconda3/Scripts/activate
+        - choco install openssl # Install OpenSSL -> Can't use https without it
+        - choco install anaconda3 --params '"/AddToPath"' # install Conda
+        - /c/tools/anaconda3/Scripts/conda init bash # initiate conda
+        - /c/tools/anaconda3/Scripts/activate # activate conda
         - source /c/Users/travis/.bash_profile
-        - /c/tools/anaconda3/Scripts/conda install -y m2w64-gcc libpython
-        - echo $CONDA
-        - export CONDA_ALWAYS_YES=1
+        - /c/tools/anaconda3/Scripts/conda install -y m2w64-gcc libpython # dependencies for nuitka
     - name: "Python linux"
       python: 3.7
       before_install:
