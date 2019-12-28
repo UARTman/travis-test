@@ -32,7 +32,7 @@ deploy:
   api_key:
     secure: N6TvRi1avmblRAsGlf6jSMdl95krU3gomDtSFhrte4Yf1BjgSNFduMl6S9oAvkfIqGp40vgn/Ik4gCDzh7rPHpTyvhwFIy7tNRYERr+6ri2Ki7d1xpQbil170X6RQkse70bji7Xp8QPUOUzZhIgtegghJJ4LzgjTItdVpvCg0+8uryeIa8MhnqdVovlAF4/pCAISoKXrfpOtGN48CmSz1eWZTZGlpb3Yk0och4oxo23ZN6TsQrTUqhfNKjY1M593WamKUBbf08iP8cjbGtTnJPcI6uSzpO9Z57P8NB77tAWTyLNTZm4zKkG3Wa3QgKdQFka1xm56HV26Tfn6/QFW4ovXRk/byWr8iunEGJDj/V4hCexUZBr3BTtERprAfKR6b1cQ6JT6K84TcrVz/odhGI1GIu/Fw1QPvUCLWj3GQ8gFeDBYLS4W7rnNw7nr1Ukq8CY1Zv0LKW+mnC7MyOjjgZF4AyVCdBQY2NweuKsdqnmLVA5LfVGcDxVXWgn9vhGbSaMxfH/M4Ter2INlAQUy/M4OidctT59bElOrMjQ4OUF6h4W/llx/8A6ZuEMHXuPpDMZB/XChYS8gpW8DiLHTG3khqBUWzLAJr1fHg6p4f0VJ4WTgJOfA55KxPhsprHkP6Tp2ORFHQ7wGmwSQ3FFH36/MW4Hmu9GqSCLVTEIcPnY=
   file:
-    - "release-linux-bin-$TRAVIS_TAG.tar"
+#    - "release-linux-bin-$TRAVIS_TAG.tar"
     - "test.py"
 #    - ./release-windows-$TRAVIS_TAG.zip
   on:
