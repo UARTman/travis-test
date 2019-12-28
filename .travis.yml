@@ -19,6 +19,8 @@ jobs:
       python: 3.7
       before_install:
         - sudo apt-get install -y chrpath
+      after_script:
+        - ./test.dist/test
     - name: "Windows NoConda"
       os: windows
       language: shell
