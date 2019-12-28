@@ -9,8 +9,10 @@ jobs:
         - choco install anaconda3
         - cd C:\\tools\\anaconda3
         - dir
+        - export CONDA_ALWAYS_YES=1
         - C:\\tools\\anaconda3\\Scripts\\activate.bat
-        - pip install --upgrade pip
+        - C:\\tools\\anaconda3\\conda.exe
+        - python -m pip install --upgrage pip
     - name: "Python linux"
       python: 3.8
 
