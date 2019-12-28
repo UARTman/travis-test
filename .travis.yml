@@ -13,7 +13,7 @@ jobs:
 #        - refreshenv
         - /c/tools/anaconda3/Scripts/conda init bash
         - /c/tools/anaconda3/Scripts/activate
-        - source C:\Users\travis\.bash_profile
+        - source /c/Users/travis/.bash_profile
         - /c/tools/anaconda3/Scripts/conda install -y m2w64-gcc libpython
         - echo $CONDA
         - export CONDA_ALWAYS_YES=1
