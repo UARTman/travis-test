@@ -7,9 +7,9 @@ jobs:
       language: shell
       before_install:
         - choco install anaconda3
-        - cd C:\tools\anaconda3
+        - cd C:\\tools\\anaconda3
         - dir
-        - C:\tools\anaconda3\Scripts\activate.bat
+        - C:\\tools\\anaconda3\\Scripts\\activate.bat
         - pip install --upgrade pip
     - name: "Python linux"
       python: 3.8
