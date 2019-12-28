@@ -14,6 +14,7 @@ jobs:
         - /c/tools/anaconda3/Scripts/conda install -y m2w64-gcc libpython # dependencies for nuitka
       after_script:
         - powershell "Compress-Archive -Path test.dist -DestinationPath release-$TRAVIS_TAG"
+        - ls
     - name: "Python linux"
       python: 3.7
       before_install:
@@ -21,6 +22,7 @@ jobs:
       after_script:
         - ./test.dist/test
         - tar -cvf release-$TRAVIS_TAG.tar test.dist
+        - ls
 
 
 before_script:
@@ -31,6 +33,5 @@ script:
   - python -m nuitka --assume-yes-for-downloads --standalone --experimental=use_pefile test.py
 
 after_script:
-  - ls
 
 
