@@ -34,6 +34,6 @@ deploy:
   skip_cleanup: true
   file:
     - "release-linux-bin-$TRAVIS_TAG.tar"
-    - "./release-windows-$TRAVIS_TAG-exe.zip"
+    - "./release-windows-$TRAVIS_TAG.zip"
   on:
     tags: true
